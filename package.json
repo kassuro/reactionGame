@@ -1,0 +1,16 @@
+{
+  "name": "reaction-game",
+  "version": "0.0.2",
+  "description": "simple reaction game based on canvas and js",
+  "main": "index.js",
+  "repository": "git@github.com:kassuro/reactionGame.git",
+  "author": "kassuro <contact@kassuro.de>",
+  "license": "MIT",
+  "scripts": {
+    "http": "light-server -s ."
+  },
+
+  "devDependencies": {
+    "light-server": "^2.7.0"
+  }
+}
