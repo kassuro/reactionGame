@@ -1,7 +1,5 @@
 import { Rect, Circle, Triangle } from './Shapes.js';
 
-
-
 function draw() {
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
@@ -20,4 +18,6 @@ function draw() {
 
 }
 
-draw()
+document.addEventListener('DOMContentLoaded', (e) => {
+    draw()
+})
