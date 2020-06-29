@@ -1,11 +1,24 @@
 import { Rect, Circle, Triangle } from './Shapes.js';
 
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 400;
+
+function randPosition() {
+    const x = Math.floor(Math.random() * (CANVAS_WIDTH - 100));
+    const y = Math.floor(Math.random() * (CANVAS_HEIGHT - 100));
+
+    return { x, y };
+}
+
 function draw() {
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
-    let rect = new Rect(context, 50, 50);
-    let circle = new Circle(context, 200, 50)
-    let tria = new Triangle(context, 300, 100);
+    const posRect = randPosition();
+    let rect = new Rect(context, posRect.x, posRect.y);
+    const postCircle = randPosition()
+    let circle = new Circle(context, postCircle.x, postCircle.y);
+    const postTria = randPosition()
+    let tria = new Triangle(context, postTria.x, postTria.y);
     rect.fillStyle = 'rgba(200, 0, 0, 1)';
     rect.draw(150, 50);
     circle.fillStyle = 'rgba(150, 200, 3, 0.5';
