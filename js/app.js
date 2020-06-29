@@ -10,6 +10,16 @@ function randPosition() {
     return { x, y };
 }
 
+function randColor() {
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+    const alpha = Math.random() + 0.3;
+
+    return `rgba(${red},${green},${blue},${alpha})`
+}
+
+
 function draw() {
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
@@ -19,12 +29,12 @@ function draw() {
     let circle = new Circle(context, postCircle.x, postCircle.y);
     const postTria = randPosition()
     let tria = new Triangle(context, postTria.x, postTria.y);
-    rect.fillStyle = 'rgba(200, 0, 0, 1)';
+    rect.fillStyle = randColor();
     rect.draw(150, 50);
-    circle.fillStyle = 'rgba(150, 200, 3, 0.5';
+    circle.fillStyle = randColor();
     circle.draw(30, 30);
 
-    tria.fillStyle = 'rgba(12, 231, 44, 0.8)'
+    tria.fillStyle = randColor()
     tria.draw(70);
     tria.moveTo(500, 50);
     tria.draw(70, 30);
