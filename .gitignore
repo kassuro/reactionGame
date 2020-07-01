@@ -25,4 +25,5 @@
 .history
 
 node_modules
+dist/main.js
 # End of https://www.gitignore.io/api/linux,visualstudiocode
