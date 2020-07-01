@@ -11,7 +11,7 @@ function randPosition() {
 }
 
 function randColor() {
-  const red = Math.floor(Math.random() * 255);
+  const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 255);
   const blue = Math.floor(Math.random() * 255);
   const alpha = Math.random() + 0.3;
