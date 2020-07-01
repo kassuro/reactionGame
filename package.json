@@ -7,12 +7,15 @@
   "author": "kassuro <contact@kassuro.de>",
   "license": "MIT",
   "scripts": {
-    "http": "light-server -s ."
+    "dev": "webpack-dev-server --open"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.3.1",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
-    "light-server": "^2.7.0"
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
