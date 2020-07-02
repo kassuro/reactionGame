@@ -3,17 +3,21 @@ import { Rectangle, Circle, Triangle } from './shapes';
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 400;
 
+function getRandomNumber(max, min = 1) {
+  return Math.floor(Math.random() * max + min);
+}
+
 function randPosition() {
-  const x = Math.floor(Math.random() * (CANVAS_WIDTH - 100));
-  const y = Math.floor(Math.random() * (CANVAS_HEIGHT - 100));
+  const x = getRandomNumber(CANVAS_WIDTH - 100, 0);
+  const y = getRandomNumber(CANVAS_HEIGHT - 100, 0);
 
   return { x, y };
 }
 
 function randColor() {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
+  const red = getRandomNumber(256, 0);
+  const green = getRandomNumber(256, 0);
+  const blue = getRandomNumber(256, 0);
   const alpha = Math.random() + 0.3;
 
   return `rgba(${red},${green},${blue},${alpha})`;
