@@ -2,6 +2,10 @@ import { Rectangle, Circle, Triangle } from './shapes';
 
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 400;
+const SHAPES = [Rectangle, Circle, Triangle];
+
+let CANVAS;
+let CONTEXT;
 
 function getRandomNumber(max, min = 1) {
   return Math.floor(Math.random() * max + min);
@@ -24,25 +28,26 @@ function randColor() {
 }
 
 function draw() {
-  const canvas = document.getElementById('canvas');
-  const context = canvas.getContext('2d');
-  const posRect = randPosition();
-  const rect = new Rectangle(context, posRect.x, posRect.y);
-  const postCircle = randPosition();
-  const circle = new Circle(context, postCircle.x, postCircle.y);
-  const postTria = randPosition();
-  const tria = new Triangle(context, postTria.x, postTria.y);
-  rect.fillStyle = randColor();
-  rect.draw(150, 50);
-  circle.fillStyle = randColor();
-  circle.draw(30, 30);
+  CONTEXT.fillStyle = '#FFF';
+  CONTEXT.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  tria.fillStyle = randColor();
-  tria.draw(70);
-  tria.moveTo(500, 50);
-  tria.draw(70, 30);
+  const position = randPosition();
+  const shapeWidth = getRandomNumber(100, 10);
+  const shapeHeight = getRandomNumber(100, 10);
+  const ShapeConstructor = SHAPES[getRandomNumber(2, 0)];
+  const shape = new ShapeConstructor(CONTEXT, position.x, position.y);
+  shape.fillStyle = randColor();
+  shape.draw(shapeWidth, shapeHeight);
+}
+
+function startGame() {
+  draw();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  draw();
+  const startButton = document.getElementById('startBtn');
+  CANVAS = document.getElementById('canvas');
+  CONTEXT = CANVAS.getContext('2d');
+
+  startButton.addEventListener('click', startGame);
 });
