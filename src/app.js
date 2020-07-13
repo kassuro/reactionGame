@@ -6,7 +6,7 @@ const SHAPES = [Rectangle, Circle, Triangle];
 
 let CANVAS;
 let CONTEXT;
-let SHAPE_CORDINATES;
+let SHAPE;
 
 function getRandomNumber(max, min = 1) {
   return Math.floor(Math.random() * max + min);
@@ -39,12 +39,7 @@ function draw() {
   const shape = new ShapeConstructor(CONTEXT, position.x, position.y);
   shape.fillStyle = randColor();
   shape.draw(shapeWidth, shapeHeight);
-  SHAPE_CORDINATES = {
-    x: position.x + CANVAS.offsetLeft,
-    y: position.y + CANVAS.offsetTop,
-    x2: position.x + shapeWidth + CANVAS.offsetLeft,
-    y2: position.y + shapeHeight + CANVAS.offsetTop,
-  };
+  SHAPE = shape;
 }
 
 function startGame() {
@@ -53,10 +48,9 @@ function startGame() {
   draw();
   CANVAS.addEventListener('click', (event) => {
     const { x, y } = event;
-    const validXCordinate = x >= SHAPE_CORDINATES.x && x <= SHAPE_CORDINATES.x2;
-    const validYCordinate = y >= SHAPE_CORDINATES.y && y <= SHAPE_CORDINATES.y2;
+    const valid = SHAPE.clickedOnShape(x - CANVAS.offsetLeft, y - CANVAS.offsetTop);
 
-    if (validXCordinate && validYCordinate) {
+    if (valid) {
       score += 1;
       console.log(score);
       draw();

@@ -26,6 +26,12 @@ class Shape {
       this.context.fill(this.path);
     }
   }
+
+  clickedOnShape(x, y) {
+    const validXCordinate = x >= this.x && x <= this.x2;
+    const validYCordinate = y >= this.y && y <= this.y2;
+    return validXCordinate && validYCordinate;
+  }
 }
 
 export default Shape;
